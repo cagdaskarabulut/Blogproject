@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block baslik %}
+    Post List Sayfası
+{% endblock  %}
+{% block icerik %}
+    <h1>
+    POST LİSTESİ (BLOG nesnesi)
+    <small class="pull-right"><a href="{% url 'post-create' %}">Post Create</a></small>
+    </h1>
+
+    {% for post in postListesi %}
+        <h3><a href="{% url 'post-detail' post.slug %}" <span>{{post.title}}</span></a></h3> 
+        <p>{{post.icerik}}</p>
+        <p>{{post.created_date}}</p>
+        <p>{{post.slug}}</p>
+    {% empty %}
+        {% include 'ornekInclude.html' %}
+    {% endfor %}
+
+{% endblock  %}

@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title> {% block baslik %} Title: {% endblock  %} </title>
+		
+		<link rel="stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap-theme.min.css" %}" />
+		<link rel="stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap.min.css" %}" />
+		<link rel="stylesheet" type="text/css" href="{% static "base.css" %}" />
+
+		<script type="text/javascript" rel="script" src="{% static "bootstrap/js/jquery.js" %}" > </script>
+		<script type="text/javascript" rel="script" src="{% static "bootstrap/js/bootstrap.min.js" %}" > </script>
+
+        	{% block ust_icerik %}  {% endblock  %} 
+	</head>
+	<body>
+		<div class="container col-lg-12">
+
+			{% include 'messages.html' %}
+
+			{% block icerik %}
+
+			{% endblock  %}
+		</div>
+	</body>
+</html>

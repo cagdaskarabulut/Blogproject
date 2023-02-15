@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block baslik %}
+    Post List Sayfası
+{% endblock  %}
+{% block icerik %}
+    
+    <h1>
+        <a href="{% url 'post-list' %}"> <span class="glyphicon glyphicon-circle-arrow-left"></span> </a>
+        {{ blog.title|upper }} 
+        <br />
+        <div class="row pull-left col-lg-12">
+            <a class="btn btn-primary btn-sm" href="{% url 'post-update' blog.slug %}"> Güncelle </a>
+            <a class="btn btn-danger btn-sm" href="{% url 'post-delete' blog.slug %}"> Sil </a>
+        </div>
+        <small>
+            {{ blog.icerik | linebreaksbr}} 
+            
+        </small>
+    </h1>
+    <h2>
+        <span class="glyphicon glyphicon-time"></span> 
+        <small>{{ blog.created_date }}</small>
+        {{blog.kategoriler.all|join:','}}
+    </h2>
+{% endblock  %}
